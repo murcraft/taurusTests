@@ -1,33 +1,21 @@
-#dist: trusty
-#
-#jobs:
-#  include:
-#    - stage: pull docker taurus
-#      script:
-#        - echo "${DOCKER_USERNAME}" | docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-#        - docker pull blazemeter/taurus
-#        - docker tag blazemeter/taurus
-#        - docker images
-#    - stage: test
-#      script: docker run --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus
-#
-#addons:
-#  artifacts:
-#      paths:
-#        - ./artifacts
-#      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results
 sudo: true
 dist: trusty
 
 jobs:
   include:
-    - stage: build docker image
-      script:
+    - stage: pull docker taurus
+    - script:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      - docker build -t travis-ci-build-stages-demo .
+      - docker pull blazemeter/taurus
       - docker images
-      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/travis-ci-build-stages-demo
-      - docker push $DOCKER_USERNAME/travis-ci-build-stages-demo
+      - docker tag blazemeter/taurus $DOCKER_USERNAME/blazemeter-taurus
+      - docker push $DOCKER_USERNAME/blazemeter-taurus
     - stage: test
-      script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
-    - script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
+      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus
+        docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
+
+addons:
+  artifacts:
+      paths:
+        - ./artifacts
+      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results/
