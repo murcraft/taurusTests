@@ -9,7 +9,7 @@ stages:
   - test
 
 before_install:
-  - docker login -u perch1234 -p rtyfgh456
+  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
   - docker pull blazemeter/taurus
 script:
   - mkdir artifacts
