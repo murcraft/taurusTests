@@ -16,4 +16,4 @@ addons:
   artifacts:
       paths:
         - artifacts
-      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results
+      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/result
