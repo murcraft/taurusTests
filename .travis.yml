@@ -1,0 +1,23 @@
+sudo: required
+dist: trusty
+
+servises:
+  - docker
+
+stages:
+  - build docker image
+  - test
+
+before_install:
+  - docker login -u perch1234 -p rtyfgh456
+  - docker pull blazemeter/taurus
+script:
+  - mkdir artifacts
+  - ls
+  - chmod -R a=rwx $(pwd)
+  - docker run --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus execution.yml
+  addons:
+  artifacts:
+      paths:
+        - artifacts
+      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results
