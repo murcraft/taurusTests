@@ -7,7 +7,7 @@ servises:
 before_install:
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
   - docker pull blazemeter/taurus
-  - mkdir artifacts
+  - mkdir ./artifacts
   - ls
   - chmod -R a=rwx $(pwd)
   - docker run --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus execution.yml
@@ -15,5 +15,5 @@ before_install:
 addons:
   artifacts:
       paths:
-        - artifacts
+        - ./artifacts
       target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/result
