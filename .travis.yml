@@ -1,19 +1,17 @@
-sudo: required
 dist: trusty
 
-servises:
-  - docker
-
-before_install:
-  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - docker pull blazemeter/taurus
-  - mkdir ./artif
-  - ls
-  - chmod -R a=rwx $(pwd)
-  - docker run --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus execution.yml
+jobs:
+  include:
+    - stage: pull docker taurus
+      script:
+        - echo "${DOCKER_USERNAME}" | docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+        - docker pull blazemeter/taurus
+        - docker images
+    - stage: test
+      script: docker run --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus
 
 addons:
   artifacts:
       paths:
         - ./artifacts
-      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/result
+      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results
