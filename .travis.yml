@@ -4,15 +4,14 @@ dist: trusty
 jobs:
   include:
     - stage: pull docker taurus
-    - script:
+      script:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker pull blazemeter/taurus
       - docker images
       - docker tag blazemeter/taurus $DOCKER_USERNAME/blazemeter-taurus
       - docker push $DOCKER_USERNAME/blazemeter-taurus
     - stage: test
-      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts blazemeter/taurus
-        docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
+      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts $DOCKER_USERNAME/blazemeter-taurus:latest
 
 addons:
   artifacts:
