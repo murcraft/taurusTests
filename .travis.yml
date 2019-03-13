@@ -4,7 +4,7 @@ dist: trusty
 jobs:
   include:
     - stage: test
-      script: docker run -it -d --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest example.yml
+      script: docker run -it --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest example.yml
 
 addons:
   artifacts:
