@@ -10,8 +10,8 @@ jobs:
       - docker tag blazemeter/taurus blazemeter/taurus:latest
       - docker images
     - stage: test
-      script: docker run -i -d --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest execution.yml
-    - script: docker run -i -d --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest taurus_jmeter_script1.yml 
+      script: docker run -it -d --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest execution.yml
+    - script: docker run -it -d --rm -v $(pwd)/lib/scripts:/bzt-configs -v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest taurus_jmeter_script1.yml 
 
 addons:
   artifacts:

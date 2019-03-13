@@ -2,7 +2,7 @@
 execution:
 - concurrency: 10
   hold-for: 2m
-  ramp-up: 40s
+  ramp-up: 1m
   scenario: Thread Group
 scenarios:
   Thread Group:
@@ -10,7 +10,4 @@ scenarios:
     - label: perchwell
       method: GET
       url: https://staging.perchwell.com/accounts/sign_in
-    - body:
-        fromPort: Paris
-        toPort: Buenos Aires
 
