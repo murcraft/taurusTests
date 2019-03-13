@@ -11,10 +11,12 @@ jobs:
       - docker tag blazemeter/taurus $DOCKER_USERNAME/blazemeter-taurus
       - docker push $DOCKER_USERNAME/blazemeter-taurus
     - stage: test
-      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts $DOCKER_USERNAME/blazemeter-taurus:latest
+      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts $DOCKER_USERNAME/blazemeter-taurus:latest execution.yml
+    - script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts $DOCKER_USERNAME/blazemeter-taurus:latest taurus_jmeter_script1.yml 
 
 addons:
   artifacts:
       paths:
         - ./artifacts
+        - ./scripts
       target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results/
