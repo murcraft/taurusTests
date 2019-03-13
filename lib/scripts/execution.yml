@@ -7,12 +7,9 @@ execution:
 scenarios:
   Thread Group:
     requests:
-    - label: blazedemo
+    - label: perchwell
       method: GET
-      url: http://blazedemo.com/
+      url: https://staging.perchwell.com/accounts/sign_in
     - body:
         fromPort: Paris
         toPort: Buenos Aires
-      label: reserve
-      method: POST
-      url: http://blazedemo.com/reserve.php
