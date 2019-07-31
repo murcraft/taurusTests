@@ -1,0 +1,311 @@
+[2019-03-13 13:38:57,478 INFO root] Taurus CLI Tool v1.13.3
+[2019-03-13 13:38:57,479 DEBUG root] Command-line options: {'verbose': None, 'no_system_configs': None, 'quiet': None, 'log': '/tmp/artifacts/bzt.log', 'option': None, 'aliases': []}
+[2019-03-13 13:38:57,479 DEBUG root] Python: CPython 2.7.12
+[2019-03-13 13:38:57,479 DEBUG root] OS: ('Linux', 'de1d7898142a', '4.9.125-linuxkit', '#1 SMP Fri Sep 7 08:20:28 UTC 2018', 'x86_64', 'x86_64')
+[2019-03-13 13:38:57,480 INFO root] Starting with configs: ['taurus_jmeter_script2.yml']
+[2019-03-13 13:38:57,480 DEBUG root] Using personal config: /root/.bzt-rc
+[2019-03-13 13:38:57,480 INFO Engine] Configuring...
+[2019-03-13 13:38:57,481 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2019-03-13 13:38:57,504 DEBUG Engine] Base configs list: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:38:57,504 DEBUG Engine.Configuration] Configs: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:38:57,504 DEBUG Engine.Configuration] Reading /usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2019-03-13 13:38:57,523 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2019-03-13 13:38:57,524 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2019-03-13 13:38:57,524 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2019-03-13 13:38:57,524 DEBUG Engine] User configs list: ['/root/.bzt-rc', 'taurus_jmeter_script2.yml']
+[2019-03-13 13:38:57,524 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', 'taurus_jmeter_script2.yml']
+[2019-03-13 13:38:57,525 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2019-03-13 13:38:57,532 DEBUG Engine.Configuration] Reading taurus_jmeter_script2.yml as YAML
+[2019-03-13 13:38:57,534 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', 'taurus_jmeter_script2.yml']
+[2019-03-13 13:38:57,534 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2019-03-13 13:38:57,538 DEBUG Engine.Configuration] Reading taurus_jmeter_script2.yml as YAML
+[2019-03-13 13:38:57,541 DEBUG Engine] Requesting updates info: http://gettaurus.org/updates/?version=1.13.3&installID=Docker
+[2019-03-13 13:38:57,541 INFO Engine] Artifacts dir: /tmp/artifacts
+[2019-03-13 13:38:57,541 DEBUG HTTPClient] Making HTTP request GET http://gettaurus.org/updates/?version=1.13.3&installID=Docker
+[2019-03-13 13:38:57,544 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2019-03-13 13:38:57,545 DEBUG urllib3.connectionpool] Starting new HTTP connection (1): gettaurus.org:80
+[2019-03-13 13:38:57,555 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2019-03-13 13:38:57,581 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2019-03-13 13:38:57,585 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.yml
+[2019-03-13 13:38:57,590 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/merged.yml
+[2019-03-13 13:38:57,594 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.json
+[2019-03-13 13:38:57,599 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/merged.json
+[2019-03-13 13:38:57,601 DEBUG Engine] Add existing artifact (move=False): taurus_jmeter_script2.yml
+[2019-03-13 13:38:57,601 DEBUG Engine] Copying taurus_jmeter_script2.yml to /tmp/artifacts/taurus_jmeter_script2.yml
+[2019-03-13 13:38:57,611 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2019-03-13 13:38:57,615 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2019-03-13 13:38:57,616 DEBUG root] Linting config
+[2019-03-13 13:38:57,619 INFO Engine] Preparing...
+[2019-03-13 13:38:57,620 DEBUG Engine] Module config: consolidator {'class': u'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2019-03-13 13:38:57,621 DEBUG root] Importing module: bzt.modules.aggregator
+[2019-03-13 13:38:57,681 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/aggregator.pyc'>
+[2019-03-13 13:38:57,681 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2019-03-13 13:38:57,681 DEBUG Engine] Module config: monitoring {'class': u'bzt.modules.monitoring.Monitoring'}
+[2019-03-13 13:38:57,681 DEBUG root] Importing module: bzt.modules.monitoring
+[2019-03-13 13:38:57,682 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/monitoring.pyc'>
+[2019-03-13 13:38:57,682 DEBUG Engine] Module config: local {'class': u'bzt.modules.provisioning.Local'}
+[2019-03-13 13:38:57,683 DEBUG root] Importing module: bzt.modules.provisioning
+[2019-03-13 13:38:57,683 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/provisioning.pyc'>
+[2019-03-13 13:38:57,683 DEBUG Engine] Module config: jmeter {'properties': {'jmeter.save.saveservice.autoflush': u'true', 'jmeter.save.saveservice.connect_time': u'true', 'summariser.name': u'', 'jmeterengine.force.system.exit': u'true'}, 'plugins': [u'jpgc-casutg', u'jpgc-dummy', u'jpgc-ffw', u'jpgc-fifo', u'jpgc-functions', u'jpgc-json', u'jpgc-perfmon', u'jpgc-prmctl', u'jpgc-tst'], 'class': u'bzt.modules.jmeter.JMeterExecutor', 'protocol-handlers': {'http': u'bzt.jmx.http.HTTPProtocolHandler'}}
+[2019-03-13 13:38:57,683 DEBUG root] Importing module: bzt.modules.jmeter
+[2019-03-13 13:38:57,689 DEBUG root] Loading class: 'JMeterExecutor' from <module 'bzt.modules.jmeter' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/jmeter.pyc'>
+[2019-03-13 13:38:57,689 DEBUG Engine.local] Preparing executor: jmeter/139821452628112
+[2019-03-13 13:38:57,690 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.log
+[2019-03-13 13:38:57,690 DEBUG Engine.jmeter] Checking if port 4445 is free
+[2019-03-13 13:38:57,690 DEBUG Engine.jmeter] Port 4445 is free
+[2019-03-13 13:38:57,690 DEBUG Engine.jmeter] Using port 4445 for management
+[2019-03-13 13:38:57,690 DEBUG Engine.jmeter] Extract {'script': u'jmeter_script1.jmx'} into scenarios
+[2019-03-13 13:38:57,697 DEBUG Engine.jmeter] Additional properties: {'jmeter.save.saveservice.autoflush': u'true', 'jmeter.save.saveservice.connect_time': u'true', 'user.classpath': u'/tmp/artifacts:/bzt-configs', 'sampleresult.default.encoding': 'UTF-8', 'summariser.name': u'', 'jmeterengine.force.system.exit': u'true', 'jmeter.save.saveservice.timestamp_format': 'ms', 'jmeterengine.nongui.maxport': 4445, 'jmeterengine.nongui.port': 4445}
+[2019-03-13 13:38:57,698 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-bzt.properties
+[2019-03-13 13:38:57,705 DEBUG Engine.jmeter.JavaVM] Trying JavaVM: ['java', '-version']
+[2019-03-13 13:38:57,706 DEBUG root] Executing shell: ['java', '-version'] at .
+[2019-03-13 13:38:57,734 DEBUG urllib3.connectionpool] http://gettaurus.org:80 "GET /updates/?version=1.13.3&installID=Docker HTTP/1.1" 200 40
+[2019-03-13 13:38:57,736 DEBUG Engine] Taurus updates info: {u'needsUpgrade': False, u'latest': u'1.13.3'}
+[2019-03-13 13:38:57,736 DEBUG Engine] Installation is up-to-date
+[2019-03-13 13:38:58,039 DEBUG Engine.jmeter.JavaVM] JavaVM output: 
+[2019-03-13 13:38:58,039 DEBUG Engine.jmeter.TclLibrary] We don't need to check tcl library on this platform
+[2019-03-13 13:38:58,039 DEBUG Engine.jmeter.JMeter] Trying jmeter: /root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh
+[2019-03-13 13:38:58,041 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh', '-j', '/tmp/jmeterEv5fYClog', '--version'] at .
+[2019-03-13 13:38:59,286 DEBUG Engine.jmeter.JMeter] JMeter check:     _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____     
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \   
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 5.0 r1840935  
+
+Copyright (c) 1999-2018 The Apache Software Foundation
+
+ / 
+[2019-03-13 13:38:59,287 DEBUG Engine.jmeter] Load: LoadSpec(concurrency=None, throughput=None, ramp_up=None, hold=0, iterations=None, duration=None, steps=None)
+[2019-03-13 13:38:59,297 DEBUG Engine] New artifact filename: /tmp/artifacts/kpi.jtl
+[2019-03-13 13:38:59,298 DEBUG Engine] New artifact filename: /tmp/artifacts/error.jtl
+[2019-03-13 13:38:59,301 INFO Engine.jmeter] 1 obsolete CookieManagers are found and fixed
+[2019-03-13 13:38:59,304 DEBUG Engine.jmeter.LoadSettingsProcessor] Thread group detection: duration not found, regular ThreadGroup will be used
+[2019-03-13 13:38:59,304 DEBUG Engine.jmeter.LoadSettingsProcessor] No iterations/concurrency/duration found, thread group modification is skipped
+[2019-03-13 13:38:59,305 DEBUG JMX] Saving JMX to: /bzt-configs/modified_jmeter_script1.jmx
+[2019-03-13 13:38:59,312 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/PluginsManagerCMD.sh', 'install-for-jmx', u'/bzt-configs/modified_jmeter_script1.jmx'] at .
+[2019-03-13 13:39:02,950 DEBUG Engine.jmeter.JMeter] Try to detect plugins for /bzt-configs/modified_jmeter_script1.jmx
+2019-03-13 13:39:00,382 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2019-03-13 13:39:00,430 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-3c6d515b6f6dca899da184f13ec694d5-nongui
+2019-03-13 13:39:02,489 INFO o.j.r.PluginManager: Plugins Status: [jpgc-functions=2.1, jpgc-casutg=2.7, jpgc-dummy=0.2, jpgc-ffw=2.0, jpgc-fifo=0.2, jpgc-json=2.7, jpgc-prmctl=0.4, jpgc-perfmon=2.1, jpgc-plugins-manager=1.3, jpgc-tst=2.5, jmeter-core=5.0, jmeter-ftp=5.0, jmeter-http=5.0, jmeter-jdbc=5.0, jmeter-jms=5.0, jmeter-junit=5.0, jmeter-java=5.0, jmeter-ldap=5.0, jmeter-mail=5.0, jmeter-mongodb=5.0, jmeter-native=5.0, jmeter-tcp=5.0, jmeter-components=5.0]
+2019-03-13 13:39:02,491 INFO o.j.r.PluginManagerCMD: Params line is: /bzt-configs/modified_jmeter_script1.jmx
+2019-03-13 13:39:02,816 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2019-03-13 13:39:02,827 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2019-03-13 13:39:02,832 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2019-03-13 13:39:02,862 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2019-03-13 13:39:02,865 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2019-03-13 13:39:02,901 INFO o.j.r.PluginManager: Finishing without changes
+
+
+[2019-03-13 13:39:02,951 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.out
+[2019-03-13 13:39:02,956 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.err
+[2019-03-13 13:39:02,963 DEBUG Engine.local] Preparing executor: jmeter/139821336818832
+[2019-03-13 13:39:02,964 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-1.log
+[2019-03-13 13:39:02,964 DEBUG Engine.jmeter] Checking if port 4446 is free
+[2019-03-13 13:39:02,964 DEBUG Engine.jmeter] Port 4446 is free
+[2019-03-13 13:39:02,964 DEBUG Engine.jmeter] Using port 4446 for management
+[2019-03-13 13:39:02,964 DEBUG Engine.jmeter] Extract {'script': u'jmeter_script2.jmx'} into scenarios
+[2019-03-13 13:39:02,973 DEBUG Engine.jmeter] Additional properties: {'jmeter.save.saveservice.autoflush': u'true', 'jmeter.save.saveservice.connect_time': u'true', 'user.classpath': u'/tmp/artifacts:/bzt-configs', 'sampleresult.default.encoding': 'UTF-8', 'summariser.name': u'', 'jmeterengine.force.system.exit': u'true', 'jmeter.save.saveservice.timestamp_format': 'ms', 'jmeterengine.nongui.maxport': 4446, 'jmeterengine.nongui.port': 4446}
+[2019-03-13 13:39:02,975 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-bzt-1.properties
+[2019-03-13 13:39:02,982 DEBUG Engine.jmeter.JavaVM] Trying JavaVM: ['java', '-version']
+[2019-03-13 13:39:02,982 DEBUG root] Executing shell: ['java', '-version'] at .
+[2019-03-13 13:39:03,291 DEBUG Engine.jmeter.JavaVM] JavaVM output: 
+[2019-03-13 13:39:03,291 DEBUG Engine.jmeter.TclLibrary] We don't need to check tcl library on this platform
+[2019-03-13 13:39:03,291 DEBUG Engine.jmeter.JMeter] Trying jmeter: /root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh
+[2019-03-13 13:39:03,291 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh', '-j', '/tmp/jmeterb7wK3ylog', '--version'] at .
+[2019-03-13 13:39:04,543 DEBUG Engine.jmeter.JMeter] JMeter check:     _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____     
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \   
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 5.0 r1840935  
+
+Copyright (c) 1999-2018 The Apache Software Foundation
+
+ / 
+[2019-03-13 13:39:04,544 DEBUG Engine.jmeter] Load: LoadSpec(concurrency=None, throughput=None, ramp_up=None, hold=0, iterations=None, duration=None, steps=None)
+[2019-03-13 13:39:04,553 DEBUG Engine] New artifact filename: /tmp/artifacts/kpi-1.jtl
+[2019-03-13 13:39:04,555 DEBUG Engine] New artifact filename: /tmp/artifacts/error-1.jtl
+[2019-03-13 13:39:04,557 INFO Engine.jmeter] 1 obsolete CookieManagers are found and fixed
+[2019-03-13 13:39:04,560 DEBUG Engine.jmeter.LoadSettingsProcessor] Thread group detection: duration not found, regular ThreadGroup will be used
+[2019-03-13 13:39:04,560 DEBUG Engine.jmeter.LoadSettingsProcessor] No iterations/concurrency/duration found, thread group modification is skipped
+[2019-03-13 13:39:04,561 DEBUG JMX] Saving JMX to: /bzt-configs/modified_jmeter_script2.jmx
+[2019-03-13 13:39:04,569 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/PluginsManagerCMD.sh', 'install-for-jmx', u'/bzt-configs/modified_jmeter_script2.jmx'] at .
+[2019-03-13 13:39:06,500 DEBUG Engine.jmeter.JMeter] Try to detect plugins for /bzt-configs/modified_jmeter_script2.jmx
+2019-03-13 13:39:05,625 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2019-03-13 13:39:05,732 INFO o.j.r.JARSourceHTTP: Found cached repo
+2019-03-13 13:39:05,975 INFO o.j.r.PluginManager: Plugins Status: [jpgc-functions=2.1, jpgc-casutg=2.7, jpgc-dummy=0.2, jpgc-ffw=2.0, jpgc-fifo=0.2, jpgc-json=2.7, jpgc-prmctl=0.4, jpgc-perfmon=2.1, jpgc-plugins-manager=1.3, jpgc-tst=2.5, jmeter-core=5.0, jmeter-ftp=5.0, jmeter-http=5.0, jmeter-jdbc=5.0, jmeter-jms=5.0, jmeter-junit=5.0, jmeter-java=5.0, jmeter-ldap=5.0, jmeter-mail=5.0, jmeter-mongodb=5.0, jmeter-native=5.0, jmeter-tcp=5.0, jmeter-components=5.0]
+2019-03-13 13:39:05,978 INFO o.j.r.PluginManagerCMD: Params line is: /bzt-configs/modified_jmeter_script2.jmx
+2019-03-13 13:39:06,343 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2019-03-13 13:39:06,358 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2019-03-13 13:39:06,366 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2019-03-13 13:39:06,400 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2019-03-13 13:39:06,405 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2019-03-13 13:39:06,452 INFO o.j.r.PluginManager: Finishing without changes
+
+
+[2019-03-13 13:39:06,501 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-1.out
+[2019-03-13 13:39:06,507 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-1.err
+[2019-03-13 13:39:06,513 DEBUG Engine] Module config: final-stats {'class': u'bzt.modules.reporting.FinalStatus'}
+[2019-03-13 13:39:06,513 DEBUG root] Importing module: bzt.modules.reporting
+[2019-03-13 13:39:06,518 DEBUG easyprocess] version=0.2.5
+[2019-03-13 13:39:06,519 DEBUG pyvirtualdisplay] version=0.2.1
+[2019-03-13 13:39:06,520 DEBUG root] Loading class: 'FinalStatus' from <module 'bzt.modules.reporting' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/reporting.pyc'>
+[2019-03-13 13:39:06,520 DEBUG Engine] Module config: console {'class': u'bzt.modules.console.ConsoleStatusReporter'}
+[2019-03-13 13:39:06,520 DEBUG root] Importing module: bzt.modules.console
+[2019-03-13 13:39:06,520 DEBUG root] Loading class: 'ConsoleStatusReporter' from <module 'bzt.modules.console' from '/usr/local/lib/python2.7/dist-packages/bzt/modules/console.pyc'>
+[2019-03-13 13:39:06,532 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2019-03-13 13:39:06,556 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2019-03-13 13:39:06,559 INFO Engine] Starting...
+[2019-03-13 13:39:06,559 DEBUG Engine] Startup <bzt.modules.monitoring.Monitoring object at 0x7f2ab801bb10>
+[2019-03-13 13:39:06,560 DEBUG Engine] Startup <bzt.modules.aggregator.ConsolidatingAggregator object at 0x7f2abc394290>
+[2019-03-13 13:39:06,560 DEBUG Engine] Startup <bzt.modules.reporting.FinalStatus object at 0x7f2ab0ad8950>
+[2019-03-13 13:39:06,560 DEBUG Engine] Startup <bzt.modules.console.ConsoleStatusReporter object at 0x7f2ab0af3850>
+[2019-03-13 13:39:06,560 INFO Engine.console] Waiting for results...
+[2019-03-13 13:39:06,560 DEBUG Engine] Startup <bzt.modules.provisioning.Local object at 0x7f2abc451090>
+[2019-03-13 13:39:06,561 DEBUG Engine.local] Delay setup for jmeter/jmeter_script1.jmx: 0(start-at) + 0(delay) = 0
+[2019-03-13 13:39:06,561 DEBUG Engine.local] Delay setup for jmeter/jmeter_script2.jmx: 0(start-at) + 0(delay) = 0
+[2019-03-13 13:39:06,568 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2019-03-13 13:39:06,592 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2019-03-13 13:39:06,595 DEBUG root] Leveling down log file verbosity to INFO, use -v option to have DEBUG messages enabled
+[2019-03-13 13:39:06,595 DEBUG root] Leveled up log file verbosity
+[2019-03-13 13:39:06,595 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh', '-t', u'/bzt-configs/modified_jmeter_script1.jmx', '-j', '/tmp/artifacts/jmeter.log', '-q', '/tmp/artifacts/jmeter-bzt.properties', '-n'] at /bzt-configs
+[2019-03-13 13:39:06,858 DEBUG root] Leveling down log file verbosity to INFO, use -v option to have DEBUG messages enabled
+[2019-03-13 13:39:06,858 DEBUG root] Leveled up log file verbosity
+[2019-03-13 13:39:06,859 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.0/bin/jmeter.sh', '-t', u'/bzt-configs/modified_jmeter_script2.jmx', '-j', '/tmp/artifacts/jmeter-1.log', '-q', '/tmp/artifacts/jmeter-bzt-1.properties', '-n'] at /bzt-configs
+[2019-03-13 13:39:07,169 DEBUG root] Leveling down log file verbosity to INFO, use -v option to have DEBUG messages enabled
+[2019-03-13 13:39:07,407 INFO Engine.console] Waiting for finish...
+[2019-03-13 13:41:44,044 WARNING Engine] Please wait for graceful shutdown...
+[2019-03-13 13:41:44,050 DEBUG root] Leveled up log file verbosity
+[2019-03-13 13:41:44,050 INFO Engine] Shutting down...
+[2019-03-13 13:41:44,057 DEBUG Engine] Current stop reason: None
+[2019-03-13 13:41:44,057 DEBUG Engine.local] Shutdown jmeter/jmeter_script1.jmx
+[2019-03-13 13:41:44,057 DEBUG Engine.local] Shutdown jmeter/jmeter_script2.jmx
+[2019-03-13 13:41:44,057 DEBUG Engine.console] Restoring logging streams, [<logging.StreamHandler object at 0x7f2abc43f610>]/{<logging.StreamHandler object at 0x7f2abc43f610>: <open file '<stdout>', mode 'w' at 0x7f2ac0d67150>}
+[2019-03-13 13:41:44,065 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2019-03-13 13:41:44,090 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2019-03-13 13:41:44,093 INFO Engine] Post-processing...
+[2019-03-13 13:41:44,093 DEBUG Engine.local] Post-process jmeter/jmeter_script1.jmx
+[2019-03-13 13:41:44,093 DEBUG Engine] Add existing artifact (move=True): /bzt-configs/modified_jmeter_script1.jmx
+[2019-03-13 13:41:44,095 DEBUG Engine] Moving /bzt-configs/modified_jmeter_script1.jmx to /tmp/artifacts/modified_jmeter_script1.jmx
+[2019-03-13 13:41:44,112 DEBUG Engine.local] Post-process jmeter/jmeter_script2.jmx
+[2019-03-13 13:41:44,112 DEBUG Engine] Add existing artifact (move=True): /bzt-configs/modified_jmeter_script2.jmx
+[2019-03-13 13:41:44,114 DEBUG Engine] Moving /bzt-configs/modified_jmeter_script2.jmx to /tmp/artifacts/modified_jmeter_script2.jmx
+[2019-03-13 13:41:44,128 DEBUG Engine.jmeter.JTLReader] Buffer len: 2; Known errors count: 0
+[2019-03-13 13:41:44,129 DEBUG Engine.jmeter.JTLReader] Aggregating: 1552484501
+[2019-03-13 13:41:44,129 DEBUG Engine.jmeter.JTLReader] Aggregating: 1552484502
+[2019-03-13 13:41:44,130 DEBUG Engine.jmeter.JTLReader] Buffer len: 1; Known errors count: 0
+[2019-03-13 13:41:44,130 DEBUG Engine.jmeter.JTLReader] Aggregating: 1552484350
+[2019-03-13 13:41:44,131 DEBUG Engine.consolidator] Putting datapoint 1552484350 into 1552484499
+[2019-03-13 13:41:44,131 DEBUG Engine.consolidator] Consolidator buffer[4]: [1552484499, 1552484500, 1552484501, 1552484502]
+[2019-03-13 13:41:44,131 DEBUG Engine.consolidator] Merging into 1552484499
+[2019-03-13 13:41:44,131 DEBUG Engine.consolidator] Merging 1552484499
+[2019-03-13 13:41:44,132 DEBUG Engine.consolidator] Merging 1552484499
+[2019-03-13 13:41:44,148 DEBUG Engine.consolidator] Processed datapoint: 1552484499/None
+[2019-03-13 13:41:44,148 DEBUG Engine.consolidator] Merging into 1552484500
+[2019-03-13 13:41:44,148 DEBUG Engine.consolidator] Bypassing consolidation because of single result
+[2019-03-13 13:41:44,161 DEBUG Engine.consolidator] Processed datapoint: 1552484500/139821523997904
+[2019-03-13 13:41:44,161 DEBUG Engine.consolidator] Merging into 1552484501
+[2019-03-13 13:41:44,161 DEBUG Engine.consolidator] Bypassing consolidation because of single result
+[2019-03-13 13:41:44,173 DEBUG Engine.consolidator] Processed datapoint: 1552484501/139821523997904
+[2019-03-13 13:41:44,173 DEBUG Engine.consolidator] Merging into 1552484502
+[2019-03-13 13:41:44,173 DEBUG Engine.consolidator] Bypassing consolidation because of single result
+[2019-03-13 13:41:44,185 DEBUG Engine.consolidator] Processed datapoint: 1552484502/139821523997904
+[2019-03-13 13:41:44,185 INFO Engine.final-stats] Test duration: 0:02:38
+[2019-03-13 13:41:44,186 INFO Engine.final-stats] Samples count: 626, 0.00% failures
+[2019-03-13 13:41:44,186 INFO Engine.final-stats] Average times: total 0.539, latency 0.050, connect 0.000
+[2019-03-13 13:41:44,187 INFO Engine.final-stats] Percentiles:
+(0lqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqk(B
+(0x(B Percentile, % (0x(B Resp. Time, s (0x(B
+(0tqqqqqqqqqqqqqqqnqqqqqqqqqqqqqqqu(B
+(0x(B           0.0 (0x(B           0.1 (0x(B
+(0x(B          50.0 (0x(B         0.535 (0x(B
+(0x(B          90.0 (0x(B         0.891 (0x(B
+(0x(B          95.0 (0x(B         0.953 (0x(B
+(0x(B          99.0 (0x(B          0.99 (0x(B
+(0x(B          99.9 (0x(B         1.001 (0x(B
+(0x(B         100.0 (0x(B         1.001 (0x(B
+(0mqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqj(B
+[2019-03-13 13:41:44,188 INFO Engine.final-stats] Request label stats:
+(0lqqqqqqqqqqqqwqqqqqqqqwqqqqqqqqqwqqqqqqqqwqqqqqqqk(B
+(0x(B label      (0x(B status (0x(B    succ (0x(B avg_rt (0x(B error (0x(B
+(0tqqqqqqqqqqqqnqqqqqqqqnqqqqqqqqqnqqqqqqqqnqqqqqqqu(B
+(0x(B Sampler #1 (0x(B   OK   (0x(B 100.00% (0x(B  0.539 (0x(B       (0x(B
+(0x(B example 2  (0x(B   OK   (0x(B 100.00% (0x(B  0.580 (0x(B       (0x(B
+(0mqqqqqqqqqqqqvqqqqqqqqvqqqqqqqqqvqqqqqqqqvqqqqqqqj(B
+[2019-03-13 13:41:44,188 DEBUG Engine.console] No logger_handler or orig_stream was detected
+[2019-03-13 13:41:44,195 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2019-03-13 13:41:44,218 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2019-03-13 13:41:44,221 INFO root] Artifacts dir: /tmp/artifacts
+[2019-03-13 13:41:44,221 INFO root] Done performing with code: 0
+[2019-03-13 13:41:44,222 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2019-03-13 13:42:25,624 INFO root] Taurus CLI Tool v1.13.3
+[2019-03-13 13:42:25,626 DEBUG root] Command-line options: {'verbose': None, 'no_system_configs': None, 'quiet': None, 'log': '/tmp/artifacts/bzt.log', 'option': None, 'aliases': []}
+[2019-03-13 13:42:25,627 DEBUG root] Python: CPython 2.7.12
+[2019-03-13 13:42:25,627 DEBUG root] OS: ('Linux', '0e18480340d6', '4.9.125-linuxkit', '#1 SMP Fri Sep 7 08:20:28 UTC 2018', 'x86_64', 'x86_64')
+[2019-03-13 13:42:25,628 INFO root] Starting with configs: ['*.yml']
+[2019-03-13 13:42:25,629 DEBUG root] Using personal config: /root/.bzt-rc
+[2019-03-13 13:42:25,630 INFO Engine] Configuring...
+[2019-03-13 13:42:25,631 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2019-03-13 13:42:25,645 DEBUG Engine] Base configs list: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:42:25,645 DEBUG Engine.Configuration] Configs: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:42:25,646 DEBUG Engine.Configuration] Reading /usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2019-03-13 13:42:25,665 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2019-03-13 13:42:25,666 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2019-03-13 13:42:25,667 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2019-03-13 13:42:25,669 DEBUG Engine] User configs list: ['/root/.bzt-rc', '*.yml']
+[2019-03-13 13:42:25,669 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', '*.yml']
+[2019-03-13 13:42:25,670 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2019-03-13 13:42:25,674 ERROR root] Config Error: Error when reading config file '*.yml': [Errno 2] No such file or directory: '*.yml'
+[2019-03-13 13:42:25,675 DEBUG root] TaurusConfigError: Error when reading config file '*.yml': [Errno 2] No such file or directory: '*.yml'
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/bzt/cli.py", line 253, in perform
+    self.__configure(configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/cli.py", line 167, in __configure
+    merged_config = self.engine.configure([bzt_rc] + configs, not self.options.no_system_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 113, in configure
+    merged_config = self._load_user_configs(user_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 584, in _load_user_configs
+    self.config.load(user_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 793, in load
+    raise TaurusConfigError("Error when reading config file '%s': %s" % (config_file, exc))
+TaurusConfigError: Error when reading config file '*.yml': [Errno 2] No such file or directory: '*.yml'
+[2019-03-13 13:42:25,676 INFO Engine] Post-processing...
+[2019-03-13 13:42:25,677 INFO root] Artifacts dir: None
+[2019-03-13 13:42:25,679 INFO root] Log file: /tmp/artifacts/bzt.log
+[2019-03-13 13:42:25,681 WARNING root] Done performing with code: 1
+[2019-03-13 13:42:25,683 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2019-03-13 13:42:43,240 INFO root] Taurus CLI Tool v1.13.3
+[2019-03-13 13:42:43,241 DEBUG root] Command-line options: {'verbose': None, 'no_system_configs': None, 'quiet': None, 'log': '/tmp/artifacts/bzt.log', 'option': None, 'aliases': []}
+[2019-03-13 13:42:43,243 DEBUG root] Python: CPython 2.7.12
+[2019-03-13 13:42:43,244 DEBUG root] OS: ('Linux', 'a091c2a630e0', '4.9.125-linuxkit', '#1 SMP Fri Sep 7 08:20:28 UTC 2018', 'x86_64', 'x86_64')
+[2019-03-13 13:42:43,246 INFO root] Starting with configs: ['\\*.yml']
+[2019-03-13 13:42:43,247 DEBUG root] Using personal config: /root/.bzt-rc
+[2019-03-13 13:42:43,248 INFO Engine] Configuring...
+[2019-03-13 13:42:43,249 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2019-03-13 13:42:43,266 DEBUG Engine] Base configs list: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:42:43,266 DEBUG Engine.Configuration] Configs: [u'/usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2019-03-13 13:42:43,266 DEBUG Engine.Configuration] Reading /usr/local/lib/python2.7/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2019-03-13 13:42:43,285 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2019-03-13 13:42:43,286 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2019-03-13 13:42:43,286 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2019-03-13 13:42:43,286 DEBUG Engine] User configs list: ['/root/.bzt-rc', '\\*.yml']
+[2019-03-13 13:42:43,287 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', '\\*.yml']
+[2019-03-13 13:42:43,287 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2019-03-13 13:42:43,289 ERROR root] Config Error: Error when reading config file '\*.yml': [Errno 22] invalid mode ('rb') or filename: '\\*.yml'
+[2019-03-13 13:42:43,290 DEBUG root] TaurusConfigError: Error when reading config file '\*.yml': [Errno 22] invalid mode ('rb') or filename: '\\*.yml'
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/bzt/cli.py", line 253, in perform
+    self.__configure(configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/cli.py", line 167, in __configure
+    merged_config = self.engine.configure([bzt_rc] + configs, not self.options.no_system_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 113, in configure
+    merged_config = self._load_user_configs(user_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 584, in _load_user_configs
+    self.config.load(user_configs)
+  File "/usr/local/lib/python2.7/dist-packages/bzt/engine.py", line 793, in load
+    raise TaurusConfigError("Error when reading config file '%s': %s" % (config_file, exc))
+TaurusConfigError: Error when reading config file '\*.yml': [Errno 22] invalid mode ('rb') or filename: '\\*.yml'
+[2019-03-13 13:42:43,290 INFO Engine] Post-processing...
+[2019-03-13 13:42:43,291 INFO root] Artifacts dir: None
+[2019-03-13 13:42:43,291 INFO root] Log file: /tmp/artifacts/bzt.log
+[2019-03-13 13:42:43,292 WARNING root] Done performing with code: 1
+[2019-03-13 13:42:43,293 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log

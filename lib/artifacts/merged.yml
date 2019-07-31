@@ -1,0 +1,9 @@
+---
+execution:
+- executor: jmeter
+  scenario:
+    script: jmeter_script1.jmx
+- executor: jmeter
+  scenario:
+    script: jmeter_script2.jmx
+

@@ -1,0 +1,5 @@
+Created the tree successfully using /bzt-configs/modified_jmeter_script1.jmx
+Starting the test @ Wed Mar 13 13:39:09 UTC 2019 (1552484349189)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+Tidying up ...    @ Wed Mar 13 13:41:42 UTC 2019 (1552484502894)
+... end of run
