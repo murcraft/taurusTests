@@ -2,14 +2,14 @@
 # Basic commands #
 ##################
 
-.PHONY: run-DLA_low tag login push
-
 run_DLA_low:
 	chmod -R a=rwx $(PWD)
 	chmod -Rf 777 .
+	echo "PWD $(PWD)"
+	ls
 	docker run -it --rm \
-	-v $(pwd)/lib/scripts/pls:/bzt-configs \
-	-v $(pwd)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest DLA_low_load.yml \
+	-v $(PWD)/lib/scripts/pls:/bzt-configs \
+	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest DLA_low_load.yml \
 	-o execution.0.scenario=$(scenario) \
 	-o modules.blazemeter.token=$token \
 	-o modules.blazemeter.report-name="DLA Search small low traffic" \
