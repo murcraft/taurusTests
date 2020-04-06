@@ -6,12 +6,11 @@ run_DLA_low:
 	chmod -R a=rwx $(PWD)
 	chmod -Rf 777 .
 	echo "PWD $(PWD)"
-	ls
 	docker run -it --rm \
 	-v $(PWD)/lib/scripts/pls:/bzt-configs \
 	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest DLA_low_load.yml \
 	-o execution.0.scenario=$(scenario) \
-	-o modules.blazemeter.token=$token \
+	-o modules.blazemeter.token=$(token) \
 	-o modules.blazemeter.report-name="DLA Search small low traffic" \
 	-o modules.blazemeter.test="Test DLA load low" \
 	-report \
@@ -24,7 +23,7 @@ run_DLA_high:
 	-v $(PWD)/lib/scripts/pls:/bzt-configs \
 	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest DLA_high_load.yml \
 	-o execution.0.scenario=$(scenario) \
-	-o modules.blazemeter.token=$token \
+	-o modules.blazemeter.token=$(token) \
 	-o modules.blazemeter.report-name=$(scenario) \
 	-o modules.blazemeter.test="Test DLA load high" \
 	-report \
@@ -37,7 +36,7 @@ run_IDX_low:
 	-v $(PWD)/lib/scripts/pls:/bzt-configs \
 	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest IDX_low_load.yml \
 	-o execution.0.scenario=$(scenario) \
-	-o modules.blazemeter.token=$token \
+	-o modules.blazemeter.token=$(token) \
 	-o modules.blazemeter.report-name=$(scenario) \
 	-o modules.blazemeter.test="Test IDX load low" \
 	-report \
@@ -50,7 +49,7 @@ run_IDX_high:
 	-v $(PWD)/lib/scripts/pls:/bzt-configs \
 	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest IDX_high_load.yml \
 	-o execution.0.scenario=$(scenario) \
-	-o modules.blazemeter.token=$token \
+	-o modules.blazemeter.token=$(token) \
 	-o modules.blazemeter.report-name=$(scenario) \
 	-o modules.blazemeter.test="Test IDX load high" \
 	-report \
