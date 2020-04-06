@@ -1,0 +1,13 @@
+---
+execution:
+- concurrency: 20
+  hold-for: 2m
+  ramp-up: 1m
+  scenario: Thread Group
+scenarios:
+  Thread Group:
+    requests:
+    - label: perchwell
+      method: GET
+      url: https://staging.perchwell.com/accounts/sign_in
+

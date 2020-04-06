@@ -3,18 +3,63 @@ dist: trusty
 
 jobs:
   include:
-    - stage: pull docker taurus
-      script:
-      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      - docker pull blazemeter/taurus
-      - docker images
-      - docker tag blazemeter/taurus $DOCKER_USERNAME/blazemeter-taurus
-      - docker push $DOCKER_USERNAME/blazemeter-taurus
-    - stage: test
-      script: docker run -i -d --rm -v $(pwd)/scripts:/bzt-configs -v $(pwd)/artifacts:/tmp/artifacts $DOCKER_USERNAME/blazemeter-taurus:latest
+    - stage: DLA users
+      env: scenario=Search_small-low_traffic
+      script: make run_DLA_low
+    - stage: DLA users
+      env: scenario=Search_average-low_traffic
+      script: make run_DLA_low
+    - stage: DLA users
+      env: scenario=Search_large-low_traffic
+      script: make run_DLA_low
+    - stage: DLA users
+      env: scenario=GetObject
+      script:  make run_DLA_low
+    - stage: DLA users
+      env: scenario=Update_low
+      script: make run_DLA_low
+    - stage: DLA users
+      env: scenario=Search_small-high_traffic
+      script: make run_DLA_high
+    - stage: DLA users
+      env: scenario=Search_average-high_traffic
+      script: make run_DLA_high
+    - stage: DLA users
+      env: scenario=Search_large-high_traffic
+      script: make run_DLA_high
+    - stage: DLA users
+      env: scenario=GetObject
+      script: make run_DLA_high
+  #  - stage: DLA update high
+  #    env: scenario=Update_high
+  #    script: make run_DLA_high
+    - stage: IDX users
+      env: scenario=Search_small-low_traffic
+      script: make run_IDX_low
+    - stage: IDX users
+      env: scenario=Search_average-low_traffic
+      script: make run_IDX_low
+    - stage: IDX users
+      env: scenario=Search_large-low_traffic
+      script: make run_IDX_low
+    - stage: IDX users
+      env: scenario=GetObject
+      script: make run_IDX_low
+    - stage: IDX users
+      env: scenario=Search_small-high_traffic
+      script: make run_IDX_high
+    - stage: IDX users
+      env: scenario=Search_average-
+      script: make run_IDX_high
+    - stage: IDX users
+      env: scenario=Search_large-low_traffic
+      script: make run_IDX_high
+    - stage: IDX users
+      env: scenario=GetObject
+      script: make run_IDX_high
 
 addons:
   artifacts:
       paths:
-        - ./artifacts
-      target_paths: $TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results/
+        - ./lib
+      target_paths: taurus/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/results/

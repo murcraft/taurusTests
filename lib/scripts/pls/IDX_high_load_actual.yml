@@ -1,0 +1,332 @@
+---
+settings:
+  env:
+    BASE_URL: https://stage-rls.perchwell.com:6103/rets
+    PASS: perchwell
+    USER: standard-idx
+execution:
+- concurrency: 5
+  hold-for: 5m
+  ramp-up: 25s
+#  scenario: Search_small-high_traffic,Search_large-high_traffic,Search_average-high_traffic,GetObject
+scenarios:
+  GetObject:
+    authorization:
+      list:
+      - mechanism: DIGEST
+        name: ${USER}
+        password: ${PASS}
+        realm: RETS Server
+        url: ${BASE_URL}
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      RETS-Version: RETS/1.7
+    requests:
+    - body: "{\r\n\t\"IDs\":[\"0000-0001-7155-4339\"]\r\n}\r\n"
+      follow-redirects: true
+      label: Login
+      method: GET
+      url: ${BASE_URL}/login
+    - assert:
+      - assume-success: false
+        contains:
+        - Content-Type
+        - Content-ID
+        not: false
+        regexp: false
+        subject: body
+      body:
+        ID: CORC-2908870:*
+        Resource: IDXListing
+        Type: Photo
+      follow-redirects: true
+      label: Photo all
+      method: POST
+      url: ${BASE_URL}/getObject
+    - assert:
+      - assume-success: false
+        contains:
+        - image/jpeg
+        not: false
+        regexp: false
+        subject: headers
+      body:
+        ID: CORC-2908870:1
+        Resource: IDXListing
+        Type: Photo
+      follow-redirects: true
+      label: Photo one
+      method: POST
+      url: ${BASE_URL}/getObject
+    - assert:
+      - assume-success: false
+        contains:
+        - 'Location:'
+        - <RETS ReplyCode="0" ReplyText="Operation Successful"/>
+        not: false
+        regexp: false
+        subject: body
+      body:
+        ID: CORC-2908870:*
+        Location: '1'
+        Resource: IDXListing
+        Type: Photo
+      follow-redirects: true
+      label: Photo all & Location
+      method: POST
+      url: ${BASE_URL}/getObject
+    - assert:
+      - assume-success: false
+        contains:
+        - 'Location:'
+        not: false
+        regexp: false
+        subject: body
+      body:
+        ID: PDES-933454:1
+        Location: '1'
+        Resource: IDXListing
+        Type: FloorPlan
+      follow-redirects: true
+      label: FloorPlan One & Location
+      method: POST
+      url: ${BASE_URL}/getObject
+    - assert:
+      - assume-success: false
+        contains:
+        - 'Content-ID: RPLU-63212600062'
+        - Content-Type
+        not: false
+        regexp: false
+        subject: body
+      body:
+        ID: RPLU-63212600062:*
+        Location: '1'
+        Resource: IDXListing
+        Type: Video
+      follow-redirects: true
+      label: Video One & Location
+      method: POST
+      url: ${BASE_URL}/getObject
+    store-cache: true
+    store-cookie: true
+    use-dns-cache-mgr: false
+  Search_average-high_traffic:
+    authorization:
+      list:
+      - mechanism: DIGEST
+        name: ${USER}
+        password: ${PASS}
+        realm: RETS Server
+        url: ${BASE_URL}
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      RETS-Version: RETS/1.7
+    requests:
+    - body: "{\r\n\t\"IDs\":[\"0000-0001-7155-4339\"]\r\n}\r\n"
+      follow-redirects: true
+      label: Login
+      method: GET
+      url: ${BASE_URL}/login
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: ((CreatedDateTime=TODAY-),(ListingID=**))|((CreatedDateTime=2018-04-01-2020-04-01),(ListingID=PRCH*)|(ListingID=CORC*))
+      follow-redirects: true
+      label: Search in IDXOpenHouse
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXOpenHouse&Class=IDXOpenHouse&Format=COMPACT&Count=1&Limit=10000
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: '%28ListingID%3D%2A%2A%29%2C%28Class%3DBuildingRent%29%2C%28%28BuildingClass%3DCondoCoop%29%7C%28BuildingClass%3DTownhouse%29%7C%28BuildingClass%3DApartment%29%29'
+      follow-redirects: true
+      label: Search in BuildingRent
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXListing&Class=BuildingRent&Format=COMPACT&Count=1&Limit=10000
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (ListingID=CORC-3479098) in IDXOpenHouse
+      method: GET
+      url: ${BASE_URL}/search?Query=(ListingID=CORC-3479098)&QueryType=DMQL2&SearchType=IDXOpenHouse&Class=IDXOpenHouse&Format=COMPACT&Count=1&Limit=100
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (ListingID=OLRS-1462289) in UnitSale
+      method: GET
+      url: ${BASE_URL}/search?Query=(ListingID=OLRS-1462289)&QueryType=DMQL2&SearchType=IDXListing&Class=UnitSale&Format=COMPACT&Count=1&Limit=100
+    store-cache: true
+    store-cookie: true
+    use-dns-cache-mgr: false
+  Search_large-high_traffic:
+    authorization:
+      list:
+      - mechanism: DIGEST
+        name: ${USER}
+        password: ${PASS}
+        realm: RETS Server
+        url: ${BASE_URL}
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      RETS-Version: RETS/1.7
+    requests:
+    - body: "{\r\n\t\"IDs\":[\"0000-0001-7155-4339\"]\r\n}\r\n"
+      follow-redirects: true
+      label: Login
+      method: GET
+      url: ${BASE_URL}/login
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: ((ListingCreatedDateTime=2020-04-01-),(BathsTotal=%2B),(ListingStatus=|Active,"Contract Signed","TOM 30 Days"),(GarageYN=.ANY.))
+      follow-redirects: true
+      label: Search in UnitSale
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXListing&Class=UnitSale&Format=COMPACT&Count=1&Limit=10000
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: '%28ListingID%3D%2A%2A%29%2C%28Class%3DBuildingRent%29%2C%28%28BuildingClass%3DCondoCoop%29%7C%28BuildingClass%3DTownhouse%29%7C%28BuildingClass%3DApartment%29%29'
+      follow-redirects: true
+      label: Search in BuildingRent
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXListing&Class=BuildingRent&Format=COMPACT&Count=1&Limit=10000
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: '%28%28BedsTotal%3D0%252B%29%7C%28BedsTotal%3D.EMPTY.%29%29%2C%28ListingModifiedDateTime%3D2016-01-01-2020-03-30%29%2C%28%28LeaseType%3D.ANY.%29%7C%28LeaseType%3D.EMPTY.%29%29'
+      follow-redirects: true
+      label: Search in UnitRent
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXListing&Class=UnitRent&Format=COMPACT&Count=1&Limit=10000
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      body:
+        Query: ((CreatedDateTime=TODAY-),(ListingID=**))|((CreatedDateTime=2018-04-01-2020-04-01),(ListingID=PRCH*)|(ListingID=CORC*))
+      follow-redirects: true
+      label: Search in IDXOpenHouse
+      method: GET
+      url: ${BASE_URL}/search?QueryType=DMQL2&SearchType=IDXOpenHouse&Class=IDXOpenHouse&Format=COMPACT&Count=1&Limit=10000
+    store-cache: true
+    store-cookie: true
+    use-dns-cache-mgr: false
+  Search_small-high_traffic:
+    authorization:
+      list:
+      - mechanism: DIGEST
+        name: ${USER}
+        password: ${PASS}
+        realm: RETS Server
+        url: ${BASE_URL}
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      RETS-Version: RETS/1.7
+    requests:
+    - body: "{\r\n\t\"IDs\":[\"0000-0001-7155-4339\"]\r\n}\r\n"
+      follow-redirects: true
+      label: Login
+      method: GET
+      url: ${BASE_URL}/login
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (BuildingClass=CondoCoop) in UnitSale
+      method: GET
+      url: ${BASE_URL}/search?Query=(BuildingClass=CondoCoop)&QueryType=DMQL2&SearchType=IDXListing&Class=UnitSale&Format=COMPACT&Count=1&Limit=100
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (ListingID=CORC-3479098) in IDXOpenHouse
+      method: GET
+      url: ${BASE_URL}/search?Query=(ListingID=CORC-3479098)&QueryType=DMQL2&SearchType=IDXOpenHouse&Class=IDXOpenHouse&Format=COMPACT&Count=1&Limit=100
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (ListingStatus=Active) in IDXListing
+      method: GET
+      url: ${BASE_URL}/search?Query=(ListingStatus=Active)&QueryType=DMQL2&SearchType=IDXListing&Class=UnitRent&Format=COMPACT&Count=1&Limit=100
+    - assert:
+      - assume-success: false
+        contains:
+        - ReplyCode="0" ReplyText="Operation Successful"
+        not: false
+        regexp: false
+        subject: body
+      follow-redirects: true
+      label: (ListingID=OLRS-1462289) in UnitSale
+      method: GET
+      url: ${BASE_URL}/search?Query=(ListingID=OLRS-1462289)&QueryType=DMQL2&SearchType=IDXListing&Class=UnitSale&Format=COMPACT&Count=1&Limit=100
+    store-cache: true
+    store-cookie: true
+    use-dns-cache-mgr: false
+reporting:
+- module: console
+- module: final-stats
+  summary: true
+  percentiles: true 
+  failed-labels: false
+  test-duration: true
+  dump-csv: IDX_high_traffic.csv
+- module: blazemeter
+  report-name: IDX high traffic
+  test: IDX_high_traffic
+  project: PLS
+modules:
+  local:
+    sequential: true
