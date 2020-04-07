@@ -11,7 +11,7 @@ run_DLA_low:
 	-v $(PWD)/lib/artifacts:/tmp/artifacts blazemeter/taurus:latest DLA_low_load.yml \
 	-o execution.0.scenario=$(scenario) \
 	-o modules.blazemeter.token=$(token) \
-	-o modules.blazemeter.report-name="DLA Search small low traffic" \
+	-o modules.blazemeter.report-name=$(scenario) \
 	-o modules.blazemeter.test="Test DLA load low" \
 	-report \
 	-sequential
@@ -54,4 +54,3 @@ run_IDX_high:
 	-o modules.blazemeter.test="Test IDX load high" \
 	-report \
 	-sequential
-
